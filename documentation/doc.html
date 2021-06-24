@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/graph-measures-1/assets/css/style.css?v=cfd2d78b2b82ed55fe1421bdd38dba0231cb1f8a">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Topological Graph Features | graph-measures-1</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Topological Graph Features" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Topological feature calculators infrastructure." />
+<meta property="og:description" content="Topological feature calculators infrastructure." />
+<link rel="canonical" href="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:url" content="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:site_name" content="graph-measures-1" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Topological Graph Features" />
+<script type="application/ld+json">
+{"description":"Topological feature calculators infrastructure.","url":"https://roysgitprojects.github.io/graph-measures-1/","@type":"WebSite","headline":"Topological Graph Features","name":"graph-measures-1","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#clients">Clients</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="main">
+      <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/roysgitprojects/graph-measures-1">View on GitHub</a>
+
+          <h1 id="project_title">Graph Measures</h1>
+          <h2 id="project_tagline">Topological feature calculators infrastructure.</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="topological-graph-features">Topological Graph Features</h1>
+
+<p>Topological feature calculators infrastructure.</p>
+
+<h2 id="calculating-features">Calculating Features</h2>
+<p>This repository helps one to calculate features for a given graph. All features are implemented in python codes, 
+and some features have also an accelerated version written in C++. Among the accelerated features, one can find 
+a code for calculating 3- and 4-motifs using VDMC, a distributed algorithm to calculate 3- and 4-motifs in a 
+GPU-parallelized way.</p>
+
+<h2 id="what-features-can-be-calculated-here">What Features Can Be Calculated Here?</h2>
+<p>The set of all vertex features implemented in graph-measures is the following. 
+The features that have an accelerated version are written in bold:</p>
+<ul>
+  <li>Average neighbor degree</li>
+  <li>General (i.e. degree if undirected, else or (in-degree, out-degree))</li>
+  <li>Louvain (i.e. implement Louvain community detection method, then associate to each vertex the number of vertices 
+in its community)</li>
+  <li>Hierarchy energy</li>
+  <li><strong>Motifs</strong></li>
+  <li><strong>K core</strong></li>
+  <li><strong>Attraction basin</strong></li>
+  <li><strong>Page Rank</strong></li>
+  <li>Fiedler vector</li>
+  <li>Closeness centrality</li>
+  <li>Eccentricity</li>
+  <li>Load centrality</li>
+  <li><strong>BFS moments</strong></li>
+  <li><strong>Flow</strong></li>
+  <li>Betweenness centrality</li>
+  <li>Communicability betweenness centrality</li>
+  <li>Eigenvector centrality</li>
+  <li>Clustering coefficient</li>
+  <li>Square clustering coefficient</li>
+  <li>Generalized degree</li>
+  <li>All pairs shortest path length</li>
+  <li>All pairs shortest path</li>
+</ul>
+
+<p>Aside from those, there are some other <a href="features_algorithms/edges">edge features</a>.
+Some more information regarding the features can be found in the files of <a href="features_meta">features_meta</a>.</p>
+
+<p><strong>NOTE:</strong> For codes relating the motifs and their calculations, one might need to create the motif variation pickle files
+in <em>features_algorithms/motif_variations</em>. To do so, one needs to run <a href="features_algorithms/motif_variations/isomorphic.py">isomorphic.py</a>.</p>
+
+<h2 id="calculating-features-1">Calculating Features</h2>
+
+<p>There are two main methods to calculate features:</p>
+<ol>
+  <li>Using <a href="features_for_any_graph.py">features_for_any_graph.py</a> - A file for calculating any requested features on a given graph.
+The class for calculating features in this file is <em>FeatureCalculator</em>. <br />
+The graph is input to this file as a text-like file of edges, with a comma delimiter. 
+For example, the graph <a href="measure_tests/example_graph.txt">example_graph.txt</a> is the following file:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 0,1
+ 0,2
+ 1,3
+ 3,2
+</code></pre></div>    </div>
+    <p>Now, an implementation of feature calculations on this graph looks like this:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">features_for_any_graph</span> <span class="kn">import</span> <span class="n">FeatureCalculator</span>
+<span class="n">feats</span> <span class="o">=</span> <span class="p">[</span><span class="s">"motif3"</span><span class="p">,</span> <span class="s">"louvain"</span><span class="p">]</span>  <span class="c1"># Any set of features
+</span><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"measure_tests"</span><span class="p">,</span> <span class="s">"example_graph.txt"</span><span class="p">)</span> 
+<span class="n">head</span> <span class="o">=</span> <span class="s">""</span> <span class="c1"># The path in which one would like to keep the pickled features calculated in the process. 
+# More options are shown here. For infomation about them, refer to the file.
+</span><span class="n">ftr_calc</span> <span class="o">=</span> <span class="n">FeatureCalculator</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">head</span><span class="p">,</span> <span class="n">feats</span><span class="p">,</span> <span class="n">acc</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">gpu</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">ftr_calc</span><span class="p">.</span><span class="n">calculate_features</span><span class="p">()</span>
+</code></pre></div>    </div>
+    <p>More information can be found in <a href="features_for_any_graph.py">features_for_any_graph.py</a>.</p>
+  </li>
+  <li>By the calculations as below:
+The calculations require an input graph in NetworkX format, later referred as gnx, and a logger.
+For this example, we build a gnx and define a logger:
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+<span class="kn">from</span> <span class="nn">loggers</span> <span class="kn">import</span> <span class="n">PrintLogger</span>
+    
+<span class="n">gnx</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">DiGraph</span><span class="p">()</span>  <span class="c1"># should be a subclass of Graph
+</span><span class="n">gnx</span><span class="p">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+    
+<span class="n">logger</span> <span class="o">=</span> <span class="n">PrintLogger</span><span class="p">(</span><span class="s">"MyLogger"</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <p>On the gnx we have, we will want to calculate the topological features.
+ There are two options to calculate topological features here, depending on the number of features we want to calculate:</p>
+    <ul>
+      <li>Calculate a specific feature:</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+ <span class="c1"># Import the feature. 
+</span> <span class="c1"># If simple, import it from vertices folder, otherwise from accelerated_graph_features: 
+</span> <span class="kn">from</span> <span class="nn">features_algorithms.vertices.louvain</span> <span class="kn">import</span> <span class="n">LouvainCalculator</span>  
+    
+ <span class="n">feature</span> <span class="o">=</span> <span class="n">LouvainCalculator</span><span class="p">(</span><span class="n">gnx</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span>  
+ <span class="n">feature</span><span class="p">.</span><span class="n">build</span><span class="p">()</span>  <span class="c1"># The building happens here
+</span>    
+ <span class="n">mx</span> <span class="o">=</span> <span class="n">feature</span><span class="p">.</span><span class="n">to_matrix</span><span class="p">(</span><span class="n">mtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">)</span>  <span class="c1"># After building, one can request to get features the a matrix 
+</span></code></pre></div>    </div>
+
+    <ul>
+      <li>Calculate a set of features (one feature can as well be calculated as written here):</li>
+    </ul>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">features_infra.graph_features</span> <span class="kn">import</span> <span class="n">GraphFeatures</span>
+    
+<span class="kn">from</span> <span class="nn">features_algorithms.vertices.louvain</span> <span class="kn">import</span> <span class="n">LouvainCalculator</span>
+<span class="kn">from</span> <span class="nn">features_algorithms.vertices.betweenness_centrality</span> <span class="kn">import</span> <span class="n">BetweennessCentralityCalculator</span>
+    
+<span class="n">features_meta</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"louvain"</span><span class="p">:</span> <span class="n">FeatureMeta</span><span class="p">(</span><span class="n">LouvainCalculator</span><span class="p">,</span> <span class="p">{</span><span class="s">"lov"</span><span class="p">}),</span>
+   <span class="s">"betweenness_centrality"</span><span class="p">:</span> <span class="n">FeatureMeta</span><span class="p">(</span><span class="n">BetweennessCentralityCalculator</span><span class="p">,</span> <span class="p">{</span><span class="s">"betweenness"</span><span class="p">}),</span>
+<span class="p">}</span>  <span class="c1"># Hold the set of features as written here. 
+</span>    
+<span class="n">features</span> <span class="o">=</span> <span class="n">GraphFeatures</span><span class="p">(</span><span class="n">gnx</span><span class="p">,</span> <span class="n">features_meta</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span> 
+<span class="n">features</span><span class="p">.</span><span class="n">build</span><span class="p">()</span>
+    
+<span class="n">mx</span> <span class="o">=</span> <span class="n">features</span><span class="p">.</span><span class="n">to_matrix</span><span class="p">(</span><span class="n">mtype</span><span class="o">=</span><span class="n">np</span><span class="p">.</span><span class="n">matrix</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="how-to-use-accelerated-features">How to use accelerated features?</h2>
+<p>The accelerated feature calculation option requires some prior work, since its files are C++ files which require making.
+The complete manual can be found <a href="https://drive.google.com/file/d/1SMGWsGpiegR1ZkA2zffyAJO4HNhM53dD/view?usp=sharing">here</a>.</p>
+
+<p>In short, for the GPU accelerated version using existing anaconda 3:</p>
+<ul>
+  <li>In case of problems with pickle files (e.g. inability to download), one can use the following <a href="features_algorithms/motif_variations/rewrite_variations.py">file</a>
+to recreate the motif variation pickle files.
+    <ol>
+      <li>Move into the path <em>features_algorithms/accelerated_graph_features/src</em>.</li>
+      <li>Create the conda environment required in which the work will be done: <em>“conda env create -f env.yml”</em></li>
+      <li>Activate the new environment: <em>“conda activate boost”</em>. <br />
+Then, make the files required for accelerated graph measures including motifs on GPU: <br />
+<em>“make -f Makefile-gpu”</em> (this might take a while).</li>
+      <li>Now, the accelerated graph features (including the GPU based motif calculations) can be used.</li>
+    </ol>
+  </li>
+</ul>
+
+<h2 id="vdmc-results-directory">VDMC Results directory</h2>
+<p>The directory called <em>vdmc_results</em> includes results used for plotting some figures in the VDMC paper.
+The code files for receiving these results are located there, as well as the results files.</p>
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">graph-measures-1 maintained by <a href="https://github.com/roysgitprojects">roysgitprojects</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+</div>
+   
+</body>
+</html> 
