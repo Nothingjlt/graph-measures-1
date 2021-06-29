@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/graph-measures-1/assets/css/style.css?v=cfd2d78b2b82ed55fe1421bdd38dba0231cb1f8a">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Topological Graph Features | graph-measures-1</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Topological Graph Features" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Topological feature calculators infrastructure." />
+<meta property="og:description" content="Topological feature calculators infrastructure." />
+<link rel="canonical" href="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:url" content="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:site_name" content="graph-measures-1" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Topological Graph Features" />
+<script type="application/ld+json">
+{"description":"Topological feature calculators infrastructure.","url":"https://roysgitprojects.github.io/graph-measures-1/","@type":"WebSite","headline":"Topological Graph Features","name":"graph-measures-1","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+table td, table td * {
+    vertical-align: top;
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="../index.html">Home Page</a>
+  <a href="../doc.html">Documentation</a>
+  <a href="../methods.html">Methods</a>
+  <a href="https://github.com/roysgitprojects/graph-measures-1/">Source code</a>
+</div>
+
+<div class="main">
+      <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/roysgitprojects/graph-measures-1">View on GitHub</a>
+
+          <h1 id="project_title">Graph Measures</h1>
+          <h2 id="project_tagline">Topological feature calculators infrastructure.</h2>
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="FeatureCalculator">graph-measures.features_for_any_graph.FeatureCalculator</h1>
+        <p>A class used to calculate features for a given graph, input as a text-like file.</p>
+        <table id="doc_table">
+            <tbody>
+            <tr><td><p>Parameters:</p></td>
+            <td><ul><li><p><strong>edge_path: str</strong>
+                Path to graph edges file (text-like file, e.g. txt or csv), from which the graph is built using networkx.
+                The graph must be unweighted. If its vertices are not [0, 1, ..., n-1], they are mapped to become
+                [0, 1, ..., n-1] and the mapping is saved.
+                Every row in the edges file should include "source_id,distance_id", without a header row.</p></li>
+                <li><p><strong> dir_path: str</strong>
+                Path to the directory in which the feature calculations will be (or already are) located.</p></li>
+                <li><p><strong>features: list of strings</strong>
+                List of the names of each feature. Could be any name from features_meta.py or "additional_features".</p></li>
+                <li><p><strong>acc: bool</strong>
+                Whether to run the accelerated features, assuming it is possible to do so.</p></li>
+                <li><p><strong>directed: bool</strong>
+                Whether the built graph is directed.</p></li>
+                <li><p><strong>gpu: bool</strong>
+                Whether to use GPUs, assuming it is possible to do so (i.e. the GPU exists and the CUDA matches).</p></li>
+                <li><p><strong>device: int</strong>
+                If gpu is True, indicates on which GPU device to calculate. Will return error if the index doesn't match the
+                available GPUs.</p></li>
+                <li><p><strong>verbose: bool</strong>
+                Whether to print things indicating the phases of calculations.</p></li>
+                <li><p><strong>params: dict, or None</strong>
+                For clique detection uses, this is a dictionary of the graph settings
+                (size, directed, clique size, edge probability). Ignored for any other use.</p></li></td>
+                </ul>
+            </tr>  
+            
+            </tbody>
+            </table>
+
+      </section>
+
+
+      <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+          
+          <p class="copyright">graph-measures-1 maintained by <a href="https://github.com/roysgitprojects">roysgitprojects</a></p>
+          
+          <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+      </div>
+</div>
+   
+</body>
+</html> 
