@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/graph-measures-1/assets/css/style.css?v=cfd2d78b2b82ed55fe1421bdd38dba0231cb1f8a">
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Topological Graph Features | graph-measures-1</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Topological Graph Features" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Topological feature calculators infrastructure." />
+<meta property="og:description" content="Topological feature calculators infrastructure." />
+<link rel="canonical" href="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:url" content="https://roysgitprojects.github.io/graph-measures-1/" />
+<meta property="og:site_name" content="graph-measures-1" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Topological Graph Features" />
+<script type="application/ld+json">
+{"description":"Topological feature calculators infrastructure.","url":"https://roysgitprojects.github.io/graph-measures-1/","@type":"WebSite","headline":"Topological Graph Features","name":"graph-measures-1","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+p{
+    font-size: medium;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+table td, table td * {
+    vertical-align: top;
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <a href="../index.html">Home Page</a>
+  <a href="../doc.html">Documentation</a>
+  <a href="../methods.html">Methods</a>
+  <a href="https://github.com/roysgitprojects/graph-measures-1/">Source code</a>
+</div>
+
+<div class="main">
+      <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/roysgitprojects/graph-measures-1">View on GitHub</a>
+
+          <h1 id="project_title">Graph Measures</h1>
+          <h2 id="project_tagline">Topological feature calculators infrastructure.</h2>
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="LouvainCalculator">features_algorithms.vertices.louvain.LouvainCalculator</h1>
+        <p>Implementation of the Louvain method for community detection.</p>
+        <table id="doc_table">
+            <tbody>
+            <tr><td><p>Parameters:</p></td>
+            <td><ul><li><p><strong>gnx: subclass of Graph</strong>
+                A NetworkX Graph object.</p></li>
+                <li><p><strong> logger: Logger objects</strong>
+                A Logger object from <a href="../loggers/all_loggers.html">loggers.py</a></a></p></li>
+                </ul>
+            </tr>  
+            
+            </tbody>
+            </table>
+
+      </section>
+      <section id="Example" class="inner">
+        <h2 id="example">Examples</h2>
+        
+<p>The calculations require an input graph in NetworkX format, later referred as gnx, and a logger.
+For this example, we build a gnx and define a logger:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="n">nx</span>
+<span class="kn">from</span> <span class="nn">loggers</span> <span class="kn">import</span> <span class="n">PrintLogger</span>
+                
+<span class="n">gnx</span> <span class="o">=</span> <span class="n">nx</span><span class="p">.</span><span class="n">DiGraph</span><span class="p">()</span>  <span class="c1"># should be a subclass of Graph
+</span><span class="n">gnx</span><span class="p">.</span><span class="n">add_edges_from</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+                
+<span class="n">logger</span> <span class="o">=</span> <span class="n">PrintLogger</span><span class="p">(</span><span class="s">"MyLogger"</span><span class="p">)</span>
+</code></pre></div>    </div>
+                <p>On the gnx we have, we will want to calculate the topological feature:</p>
+
+                <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="c1"># Import the feature. 
+</span><span class="c1"># If simple, import it from vertices folder, otherwise from accelerated_graph_features: 
+</span><span class="kn">from</span> <span class="nn">features_algorithms.vertices.louvain</span> <span class="kn">import</span> <span class="n">LouvainCalculator</span>  
+                
+<span class="n">feature</span> <span class="o">=</span> <span class="n">LouvainCalculator</span><span class="p">(</span><span class="n">gnx</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="n">logger</span><span class="p">)</span>  
+<span class="n">feature</span><span class="p">.</span><span class="n">build</span><span class="p">()</span>  <span class="c1"># The building happens here
+</span>    
+
+      </section>
+
+      <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+          
+          <p class="copyright">graph-measures-1 maintained by <a href="https://github.com/roysgitprojects">roysgitprojects</a></p>
+          
+          <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+        </footer>
+      </div>
+</div>
+   
+</body>
+</html> 
