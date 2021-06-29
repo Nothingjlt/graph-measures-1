@@ -111,7 +111,13 @@ table td, table td * {
                 <li><p><strong> dir_path: str</strong>
                 Path to the directory in which the feature calculations will be (or already are) located.</p></li>
                 <li><p><strong>features: list of strings</strong>
-                List of the names of each feature. Could be any name from features_meta.py or "additional_features".</p></li>
+                List of the names of each feature. Could be any name from features_meta.py or "additional_features". The avaliable featuers are: <kbd> ["average_neighbor_degree", "betweenness_centrality", "bfs_moments",
+                            "closeness_centrality", "communicability_betweenness_centrality",
+                            "eccentricity", "fiedler_vector", "k_core", "load_centrality",
+                            "louvain", "motif3", "motif4", "degree", "additional_features",
+                            "eigenvector_centrality","clustering_coefficient",
+                            "square_clustering_coefficient","generalized_degree",
+                            "all_pairs_shortest_path_length","all_pairs_shortest_path"]</kbd></p></li>
                 <li><p><strong>acc: bool</strong>
                 Whether to run the accelerated features, assuming it is possible to do so.</p></li>
                 <li><p><strong>directed: bool</strong>
@@ -133,7 +139,10 @@ table td, table td * {
             </table>
 
       </section>
+      <section id="Example" class="inner">
+        <h2 id="example">Examples</h2>
 
+      </section>
 
       <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
