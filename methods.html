@@ -90,6 +90,16 @@ th, td {
   color: white;
   background-color: black;
 }
+#loggers_table tr:nth-child(even) {
+  background-color: #eee;
+}
+#loggers_table tr:nth-child(odd) {
+  background-color: fff;
+}
+#loggers_table th {
+  color: white;
+  background-color: black;
+}
 p{
     font-size: medium;
 }
@@ -138,6 +148,33 @@ p{
 </p>
 
       </section>
+
+    <section id="main_content" class="inner">
+        <h1 id="Loggers">Loggers</h1>
+        <p>The following classes are avaliable in this project:
+            <table id="loggers_table">
+            <tbody>
+            <tr class="row-odd"><td><p><a class="reference internal" href="loggers/base_logger" title="loggers.BaseLogger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseLogger</span></code></a>()</p></td>
+            <td><p>A base logger.</p></td>
+            </tr>
+        
+            <tr class="row-even"><td><p><a class="reference internal" href="loggers/file_logger" title="loggers.FileLogger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FileLogger</span></code></a>()</p></td>
+                <td><p>A file logger.</p></td>
+                </tr>
+            
+            <tr class="row-odd"><td><p><a class="reference internal" href="loggers/csv_logger" title="loggers.CSVLogger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CSVLogger</span></code></a>()</p></td>
+                <td><p>A csv logger.</p></td>
+                </tr>
+            
+            <tr class="row-even"><td><p><a class="reference internal" href="loggers/print_logger" title="loggers.PrintLogger"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PrintLogger</span></code></a>()</p></td>
+                <td><p>A Print logger.</p></td>
+                </tr>
+                    
+            </tbody>
+            </table>
+        </p>
+
+        </section>
     </div>
 
     <!-- FOOTER  -->
