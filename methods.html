@@ -93,73 +93,12 @@ body {
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1 id="topological-graph-features">Topological Graph Features</h1>
+        <h1 id="Methods">Methods</h1>
 
-<p>Topological feature calculators infrastructure.</p>
+<p>The following methods are avaliable in this project:
+    <tr class="row-odd"><td><p><a class="reference internal" href="generated/networkx.algorithms.centrality.current_flow_closeness_centrality.html#networkx.algorithms.centrality.current_flow_closeness_centrality" title="networkx.algorithms.centrality.current_flow_closeness_centrality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_flow_closeness_centrality</span></code></a>(G[, …])</p></td>
 
-<h2 id="calculating-features">Calculating Features</h2>
-<p>This repository helps one to calculate features for a given graph. All features are implemented in python codes, 
-and some features have also an accelerated version written in C++. Among the accelerated features, one can find 
-a code for calculating 3- and 4-motifs using VDMC, a distributed algorithm to calculate 3- and 4-motifs in a 
-GPU-parallelized way.</p>
-
-<h2 id="what-features-can-be-calculated-here">What Features Can Be Calculated Here?</h2>
-<p>The set of all vertex features implemented in graph-measures is the following. 
-The features that have an accelerated version are written in bold:</p>
-<ul>
-  <li>Average neighbor degree</li>
-  <li>General (i.e. degree if undirected, else or (in-degree, out-degree))</li>
-  <li>Louvain (i.e. implement Louvain community detection method, then associate to each vertex the number of vertices 
-in its community)</li>
-  <li>Hierarchy energy</li>
-  <li><strong>Motifs</strong></li>
-  <li><strong>K core</strong></li>
-  <li><strong>Attraction basin</strong></li>
-  <li><strong>Page Rank</strong></li>
-  <li>Fiedler vector</li>
-  <li>Closeness centrality</li>
-  <li>Eccentricity</li>
-  <li>Load centrality</li>
-  <li><strong>BFS moments</strong></li>
-  <li><strong>Flow</strong></li>
-  <li>Betweenness centrality</li>
-  <li>Communicability betweenness centrality</li>
-  <li>Eigenvector centrality</li>
-  <li>Clustering coefficient</li>
-  <li>Square clustering coefficient</li>
-  <li>Generalized degree</li>
-  <li>All pairs shortest path length</li>
-  <li>All pairs shortest path</li>
-</ul>
-
-<p>Aside from those, there are some other <a href="features_algorithms/edges">edge features</a>.
-Some more information regarding the features can be found in the files of <a href="features_meta">features_meta</a>.</p>
-
-<p><strong>NOTE:</strong> For codes relating the motifs and their calculations, one might need to create the motif variation pickle files
-in <em>features_algorithms/motif_variations</em>. To do so, one needs to run <a href="features_algorithms/motif_variations/isomorphic.py">isomorphic.py</a>.</p>
-
-<h2 id="how-to-use-accelerated-features">How to use accelerated features?</h2>
-<p>The accelerated feature calculation option requires some prior work, since its files are C++ files which require making.
-The complete manual can be found <a href="https://drive.google.com/file/d/1SMGWsGpiegR1ZkA2zffyAJO4HNhM53dD/view?usp=sharing">here</a>.</p>
-
-<p>In short, for the GPU accelerated version using existing anaconda 3:</p>
-<ul>
-  <li>In case of problems with pickle files (e.g. inability to download), one can use the following <a href="features_algorithms/motif_variations/rewrite_variations.py">file</a>
-to recreate the motif variation pickle files.
-    <ol>
-      <li>Move into the path <em>features_algorithms/accelerated_graph_features/src</em>.</li>
-      <li>Create the conda environment required in which the work will be done: <em>“conda env create -f env.yml”</em></li>
-      <li>Activate the new environment: <em>“conda activate boost”</em>. <br />
-Then, make the files required for accelerated graph measures including motifs on GPU: <br />
-<em>“make -f Makefile-gpu”</em> (this might take a while).</li>
-      <li>Now, the accelerated graph features (including the GPU based motif calculations) can be used.</li>
-    </ol>
-  </li>
-</ul>
-
-<h2 id="vdmc-results-directory">VDMC Results directory</h2>
-<p>The directory called <em>vdmc_results</em> includes results used for plotting some figures in the VDMC paper.
-The code files for receiving these results are located there, as well as the results files.</p>
+</p>
 
       </section>
     </div>
