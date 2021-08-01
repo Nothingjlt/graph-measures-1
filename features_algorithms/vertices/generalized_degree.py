@@ -11,7 +11,8 @@ class GeneralizedDegreeCalculator(NodeFeatureCalculator):
         self._features = nx.algorithms.cluster.generalized_degree(self._gnx)
 
     def is_relevant(self):
-        return True
+        # Networkx raises a NetworkXNotImplemented exception for directed graphs.
+        return not self._gnx.is_directed()
 
 
 feature_entry = {

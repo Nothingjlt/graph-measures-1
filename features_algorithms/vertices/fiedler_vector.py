@@ -12,7 +12,8 @@ class FiedlerVectorCalculator(NodeFeatureCalculator):
     def _calculate(self, include: set):
         self._features = {}
 
-        for graph in nx.connected_component_subgraphs(self._gnx):
+        for connected_component in nx.connected_components(self._gnx):
+            graph = self._gnx.subgraph(connected_component)
             if len(graph) < 2:
                 self._features.update(zip(graph.nodes(), [0.] * len(graph)))
             else:
